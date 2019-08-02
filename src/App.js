@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Table from './Table';
 
-function App() {
-  const authors = [
+class App extends Component {
+  authors = [
     {
       nome: 'Paulo',
       livro: 'React',
@@ -24,14 +24,20 @@ function App() {
       nome: 'Bruno',
       livro: 'DevOps',
       preco: '100'
+    },
+    {
+      nome: 'Karina',
+      livro: 'English in Brazil',
+      preco: '100'
     }
   ];
 
-  return (
-    <div className="App">
-      <Table authors = { authors } />
-    </div>
-  );
+  render() {
+    return (
+      <div className="App">
+        <Table authors = { this.authors } />
+      </div>
+    );
+  }
 }
-
 export default App;
