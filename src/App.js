@@ -39,10 +39,23 @@ class App extends Component {
     ],
   };
 
+  removeAuthor = (index) => {
+    const { authors } = this.state;
+
+    this.setState(
+      {
+        authors: authors.filter((author, currentpos) => {          
+          console.log(index, currentpos)
+          return currentpos !== index;
+        }),   
+      }
+    );
+  }
+
   render() {
     return (
       <div className="App">
-        <Table authors = { this.state.authors } />
+        <Table authors = { this.state.authors } removeAuthor = { this.removeAuthor } />
       </div>
     );
   }
