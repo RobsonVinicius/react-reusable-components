@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Table from './Table';
+import Form from './Form';
+
 
 class App extends Component {
   state = {
@@ -56,6 +58,7 @@ class App extends Component {
     return (
       <div className="App">
         <Table authors = { this.state.authors } removeAuthor = { this.removeAuthor } />
+        <Form />
       </div>
     );
   }
