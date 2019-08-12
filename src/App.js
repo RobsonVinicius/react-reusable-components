@@ -56,10 +56,10 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <fragment>
         <Table authors = { this.state.authors } removeAuthor = { this.removeAuthor } />
         <Form />
-      </div>
+      </fragment>
     );
   }
 }
