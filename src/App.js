@@ -8,35 +8,30 @@ class App extends Component {
   state = {
     authors: [
       {
-        nome: 'Paulo',
-        livro: 'React',
-        preco : '1000'
+        name: 'Paulo',
+        book: 'React',
+        price: '1000'
 
       },
       {
-        nome: 'Daniel',
-        livro: 'Java',
-        preco: '99'
+        name: 'Daniel',
+        book: 'Java',
+        price: '99'
       }, 
       {
-        nome: 'Marcos',
-        livro: 'Design',
-        preco: '150'
+        name: 'Marcos',
+        book: 'Design',
+        price: '150'
       }, 
       {
-        nome: 'Bruno',
-        livro: 'DevOps',
-        preco: '100'
+        name: 'Bruno',
+        book: 'DevOps',
+        price: '100'
       },
       {
-        nome: 'Karina',
-        livro: 'English in Brazil',
-        preco: '100'
-      },
-      {
-        nome: 'Karina',
-        livro: 'English in Brazil',
-        preco: '100'
+        name: 'Karina',
+        book: 'English in Brazil',
+        price: '100'
       }
     ],
   };
@@ -46,20 +41,23 @@ class App extends Component {
 
     this.setState(
       {
-        authors: authors.filter((author, currentpos) => {          
-          console.log(index, currentpos)
+        authors: authors.filter((author, currentpos) => {                    
           return currentpos !== index;
         }),   
       }
     );
   }
 
+  submitListener = author => {
+    this.setState({ authors: [...this.state.authors, author] });
+  }
+
   render() {
     return (
-      <fragment>
+      <>
         <Table authors = { this.state.authors } removeAuthor = { this.removeAuthor } />
-        <Form />
-      </fragment>
+        <Form submitListener={ this.submitListener } />
+      </>
     );
   }
 }

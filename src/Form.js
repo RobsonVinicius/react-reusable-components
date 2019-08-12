@@ -21,8 +21,14 @@ class Form extends Component {
     this.setState({
       [name] : value
     });
+  } 
+
+  submitForm = () => {
+    this.props.submitListener(this.state);
+    this.setState(this.stateInitial);
   }
 
+  
   render() {
 
     const { name, book, price } = this.state;
@@ -37,7 +43,7 @@ class Form extends Component {
           value={name} 
           onChange = {this.inputListener} />      
         
-        <label htmlForm="livro">Livro</label>
+        <label htmlFor="book">Livro</label>
         <input 
           id="book"
           type="text"
@@ -53,7 +59,7 @@ class Form extends Component {
           value={price}
           onChange = {this.inputListener} />
         
-        <button type="button">Salvar</button>
+        <button onClick={this.submitForm} type="button">Salvar</button>
 
       </form>
     )
