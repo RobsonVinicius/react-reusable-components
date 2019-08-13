@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 
+import './styles.css';
+
 const TableHead = () => {
   return (
     <thead>
       <tr>
-        <th>Autores</th>
-        <th>Livros</th>
-        <th>Preços</th>
-        <th>Remover</th>
+        <th scope="col">Autores</th>
+        <th scope="col">Livros</th>
+        <th scope="col">Preços</th>
+        <th scope="col">Remover</th>
       </tr>
     </thead>
   );
@@ -16,12 +18,12 @@ const TableHead = () => {
 const TableBody = props => {
   const lines = props.authors.map((line, index)=>{
     return( 
-    <tr key={index}>
-         <td>{line.name}</td>
-         <td>{line.book}</td>
-         <td>{line.price}</td>
-         <td><button onClick={ () => props.removeAuthor(index)} >Remover</button></td>
-     </tr>
+      <tr className="t-row" key={index}>
+        <td>{line.name}</td>
+        <td>{line.book}</td>
+        <td>{line.price}</td>
+        <td><button onClick={ () => props.removeAuthor(index)} >Remover</button></td>
+      </tr>
     );
  });
 
@@ -38,7 +40,7 @@ class Table extends Component {
     const { authors, removeAuthor } = this.props;    
 
     return (
-      <table>
+      <table className="table text-center">
         <TableHead />
         <TableBody authors = { authors } removeAuthor = { removeAuthor } />
       </table>

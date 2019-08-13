@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component, Fragment } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import Header from './Header';
 import Table from './Table';
 import Form from './Form';
 
@@ -54,10 +56,11 @@ class App extends Component {
 
   render() {
     return (
-      <>
+      <Fragment>
+        <Header/>
         <Table authors = { this.state.authors } removeAuthor = { this.removeAuthor } />
         <Form submitListener={ this.submitListener } />
-      </>
+      </Fragment>
     );
   }
 }
