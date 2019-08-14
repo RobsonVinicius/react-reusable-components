@@ -56,7 +56,7 @@ class App extends Component {
 
   render() {
     return (
-      <Fragment>
+      <Fragment className="container">
         <Header/>
         <Table authors = { this.state.authors } removeAuthor = { this.removeAuthor } />
         <Form submitListener={ this.submitListener } />
