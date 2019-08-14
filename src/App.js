@@ -10,7 +10,7 @@ class App extends Component {
   state = {
     authors: [
       {
-        name: 'Paulo',
+        name: 'Bruno',
         book: 'React',
         price: '1000'
 
@@ -26,7 +26,7 @@ class App extends Component {
         price: '150'
       }, 
       {
-        name: 'Bruno',
+        name: 'Fernanda',
         book: 'DevOps',
         price: '100'
       },
