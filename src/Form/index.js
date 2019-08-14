@@ -72,7 +72,7 @@ class Form extends Component {
               onChange = {this.inputListener} />
           </div>
         </div>
-        <button className="btn btn-success btn-block btn-save mt-4" onClick={this.submitForm} type="button">Salvar</button>
+        <button className="btn btn-outline-success btn-block btn-save mt-4" onClick={this.submitForm} type="button">Salvar</button>
 
       </form>
     )

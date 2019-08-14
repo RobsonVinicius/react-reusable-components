@@ -22,7 +22,7 @@ const TableBody = props => {
         <td>{line.name}</td>
         <td>{line.book}</td>
         <td>{line.price}</td>
-        <td><button class="btn btn-outline-danger" onClick={ () => props.removeAuthor(index)} >Remover</button></td>
+        <td><button className="btn btn-outline-danger" onClick={ () => props.removeAuthor(index)} >Remover</button></td>
       </tr>
     );
  });
