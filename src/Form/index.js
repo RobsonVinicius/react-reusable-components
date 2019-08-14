@@ -38,7 +38,7 @@ class Form extends Component {
     return (
       <form className="form-inline justify-content-center mt-5">
         <div className="row ">
-          <div className="col-4">
+          <div className="col-3">
             <label htmlFor="name" className="col-form-label"></label>
             <input 
               className="form-control"
@@ -49,7 +49,7 @@ class Form extends Component {
               value={name} 
               onChange = {this.inputListener} />      
           </div>
-          <div className="col-4">
+          <div className="col-3">
             <label htmlFor="book" className="col-form-label"></label>
             <input 
               className="form-control"
@@ -60,7 +60,7 @@ class Form extends Component {
               value={book}
               onChange = {this.inputListener} />
           </div>
-          <div className="col-4">
+          <div className="col-3">
             <label htmlFor="price" className="col-form-label"></label>
             <input 
               className="form-control"
@@ -71,8 +71,11 @@ class Form extends Component {
               value={price}
               onChange = {this.inputListener} />
           </div>
+          <div className="col-3">
+            <button className="btn btn-outline-success btn-save" onClick={this.submitForm} type="button">Salvar</button>
+          </div>
         </div>
-        <button className="btn btn-outline-success btn-block btn-save mt-4" onClick={this.submitForm} type="button">Salvar</button>
+        
 
       </form>
     )
