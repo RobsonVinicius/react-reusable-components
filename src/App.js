@@ -10,30 +10,30 @@ class App extends Component {
   state = {
     authors: [
       {
-        name: 'Bruno',
+        name: 'Robson Vinicius',
         book: 'React',
-        price: '1000'
+        price: '59.90'
 
       },
       {
-        name: 'Daniel',
+        name: 'Andressa Santos',
         book: 'Java',
-        price: '99'
+        price: '99.80'
       }, 
       {
-        name: 'Marcos',
+        name: 'Marcos Fontes',
         book: 'Design',
-        price: '150'
+        price: '149.90'
       }, 
       {
-        name: 'Fernanda',
+        name: 'Fernanda Regina',
         book: 'DevOps',
-        price: '100'
+        price: '100.50'
       },
       {
-        name: 'Karina',
+        name: 'Carina Fragozo',
         book: 'English in Brazil',
-        price: '100'
+        price: '99.90'
       }
     ],
   };
