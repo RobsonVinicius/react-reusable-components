@@ -4,7 +4,7 @@ import "./styles.css"
 
 const Header = () => {
   return (
-    <nav className="navbar navbar-dark bg-nav" style={{backgroundColor: '#563d7c'}}>
+    <nav className="navbar navbar-dark" style={{backgroundColor: '#563d7c'}}>
       <div className="container">
         <a className="navbar-brand" href="/">Biblioteca Digital</a> 
         <ul className="nav justify-content-end" >
