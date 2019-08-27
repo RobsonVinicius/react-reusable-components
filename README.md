@@ -1,3 +1,42 @@
+
+## Frutas Fruto  
+
+### Especificações
+
+• yarn v16.0
+
+• node v10.16.0
+
+• React
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+
+
+
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
