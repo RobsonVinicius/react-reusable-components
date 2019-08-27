@@ -5,10 +5,13 @@
 
 • yarn v16.0
 
-• node v10.16.0
+• React v16.8
 
-• React
+<hr>
 
+### Packages
+
+• validator 10.11.0
 
 
 
