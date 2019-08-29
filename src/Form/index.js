@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 
 import "./styles.css";
 
+import FormValidator from '../FormValidator'; 
+
 class Form extends Component {
 
   constructor(props) {
     super(props);
+
+    this.validator = new FormValidator();
 
     this.stateInitial = {
       name:'',
@@ -26,8 +30,12 @@ class Form extends Component {
   } 
 
   submitForm = () => {
-    this.props.submitListener(this.state);
-    this.setState(this.stateInitial);
+    if(this.validator.validate(this.state)) {
+      this.props.submitListener(this.state);
+      this.setState(this.stateInitial);
+    } else {
+      console.log('Submit Bloqueado');
+    }
   }
 
   
