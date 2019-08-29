@@ -9,7 +9,10 @@ class Form extends Component {
   constructor(props) {
     super(props);
 
-    this.validator = new FormValidator();
+    this.validator = new FormValidator({
+      field: 'name',
+      method: 'isEmpty'
+    })
 
     this.stateInitial = {
       name:'',
