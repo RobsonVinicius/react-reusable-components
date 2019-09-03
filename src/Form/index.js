@@ -17,17 +17,17 @@ class Form extends Component {
       message: 'Insira o nome do autor'
       },
       {
-        field: 'book',
-        method: 'isEmpty',
-        validWhen: false,
-        message: 'Insira o título do livro'
+      field: 'book',
+      method: 'isEmpty',
+      validWhen: false,
+      message: 'Insira o título do livro'
       },
       {
-        field: 'price',
-        method: 'isInt',
-        args: [{min: 0, max: 99999}], 
-        validWhen: true,
-        message: 'Insira um valor númerico'
+      field: 'price',
+      method: 'isInt',
+      args: [{min: 0, max: 99999}], 
+      validWhen: true,
+      message: 'Insira um valor númerico'
       }
     ]);
 
@@ -35,6 +35,7 @@ class Form extends Component {
       name:'',
       book: '', 
       price: '',
+      validation: this.validator.valid()
     }
 
     this.state = this.stateInitial;
@@ -50,11 +51,19 @@ class Form extends Component {
   } 
 
   submitForm = () => {
-    if(this.validator.validate(this.state)) {
+    const validation = this.validator.validate(this.state);
+
+    if(validation.isValid) {
       this.props.submitListener(this.state);
       this.setState(this.stateInitial);
     } else {
-      console.log('Submit Bloqueado');
+      const {name, book, price} = validation;
+      const fields = [name, book, price];
+
+      const invalidFields = fields.filter(elem => {
+        return elem.isInvalid;
+      });
+      invalidFields.forEach(console.log);
     }
   }
 
