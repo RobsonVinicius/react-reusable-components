@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './Header';
 import Table from './Table';
 import Form from './Form';
-
+import PopUp from './PopUp';
 
 class App extends Component {
   state = {
@@ -48,10 +48,12 @@ class App extends Component {
         }),   
       }
     );
+    PopUp.displayMessage('remove', 'Livro Removido com sucesso')
   }
 
   submitListener = author => {
     this.setState({ authors: [...this.state.authors, author] });
+    PopUp.displayMessage("success", "Autor Adicionado com sucesso");
   }
 
   render() {
