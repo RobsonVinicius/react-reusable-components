@@ -12,6 +12,7 @@
 ### Packages
 
 • validator v10.11.0
+
 • Sweet Alert 2  v8.17.1
 
 
