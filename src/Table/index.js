@@ -5,9 +5,9 @@ import './styles.css';
 const TableHead = () => {
   return (
     <thead>
-      <tr>
-        <th scope="col">Autores</th>
+      <tr>        
         <th scope="col">Livros</th>
+        <th scope="col">Autores</th>
         <th scope="col">Preços</th>
         <th scope="col">Remover</th>
       </tr>
@@ -18,9 +18,9 @@ const TableHead = () => {
 const TableBody = props => {
   const lines = props.authors.map((line, index)=>{
     return( 
-      <tr className="t-row" key={index}>
-        <td>{line.name}</td>
+      <tr className="t-row" key={index}>        
         <td>{line.book}</td>
+        <td>{line.name}</td>
         <td>{line.price}</td>
         <td><button className="btn btn-outline-danger" onClick={ () => props.removeAuthor(index)} >Remover</button></td>
       </tr>
