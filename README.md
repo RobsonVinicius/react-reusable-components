@@ -20,7 +20,7 @@ Validator: 10.11.0
 Yarn: 1.16.0
 <br>
 
-<hr>
+##
 
 Node: v10.16.0
 
