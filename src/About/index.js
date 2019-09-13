@@ -5,9 +5,11 @@ const About = () => {
   return (
     <Fragment>
       <Header/>
-        <h1>
-          Sobre
-        </h1>
+        <div className="container">
+          <h1 className="mt-5">
+            Sobre
+          </h1>
+        </div>
       
     </Fragment>
   );

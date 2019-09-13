@@ -1,19 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import LinkWrapper from '../LinkWrapper';
 
-import "./styles.css"
+import "./styles.css";
 
 const Header = () => {
   return (
     <nav className="navbar navbar-dark" style={{backgroundColor: '#563d7c'}}>
       <div className="container">
-        <Link to="/" className="navbar-brand">Biblioteca Digital</Link> 
+        <LinkWrapper to="/" className="navbar-brand" activeStyle={{}}>Biblioteca Digital</LinkWrapper> 
         <ul className="nav justify-content-end">          
           <li className="nav-item">
-            <Link to="/" className="nav-link nav-link-color active">Livros</Link>
+            <LinkWrapper exact to="/" className="nav-link nav-link-color">Livros</LinkWrapper>
           </li>
           <li className="nav-item">
-            <Link to="/sobre" className="nav-link nav-link-color">Sobre</Link>
+            <LinkWrapper exact to="/sobre/" className="nav-link nav-link-color">Sobre</LinkWrapper>
           </li>
         </ul>
       </div>      
