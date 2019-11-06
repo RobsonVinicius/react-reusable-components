@@ -16,22 +16,30 @@ class App extends Component {
   }
   
   
-  removeAuthor = (index) => {
+  removeAuthor = (id) => {
     const { authors } = this.state;
 
     this.setState(
       {
-        authors: authors.filter((author, currentpos) => {                    
-          return currentpos !== index;
+        authors: authors.filter((author) => {                    
+          return author.id !== id;
         }),   
       }
     );
-    PopUp.displayMessage('remove', 'Livro Removido com sucesso')
+    PopUp.displayMessage('remove', 'Livro Removido com sucesso');
+    ApiService.RemoveAuthor(id);
   }
 
   submitListener = author => {
     this.setState({ authors: [...this.state.authors, author] });
     PopUp.displayMessage("success", "Autor Adicionado com sucesso");
+  }
+
+  componentDidMount() {
+    ApiService.ListAuthors()
+      .then(res => {
+        this.setState({authors : [...this.state.authors, ...res.data]})
+      }); 
   }
 
   render() {
