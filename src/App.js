@@ -6,37 +6,16 @@ import Table from './Table';
 import Form from './Form';
 import PopUp from './PopUp';
 
-class App extends Component {
-  state = {
-    authors: [
-      {
-        name: 'Robson Vinicius',
-        book: 'React',
-        price: '59.90'
+import ApiService from './ApiService';
 
-      },
-      {
-        name: 'Andressa Santos',
-        book: 'Java',
-        price: '99.80'
-      }, 
-      {
-        name: 'Marcos Fontes',
-        book: 'Design',
-        price: '149.90'
-      }, 
-      {
-        name: 'Fernanda Regina',
-        book: 'DevOps',
-        price: '100.50'
-      },
-      {
-        name: 'Carina Fragozo',
-        book: 'English in Brazil',
-        price: '99.90'
-      }
-    ],
-  };
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      authors: [],
+    };  
+  }
 
   removeAuthor = (index) => {
     const { authors } = this.state;
@@ -53,7 +32,14 @@ class App extends Component {
 
   submitListener = author => {
     this.setState({ authors: [...this.state.authors, author] });
-    PopUp.displayMessage("success", "Autor Adicionado com sucesso");
+    PopUp.displayMessage("success", "Livro Adicionado com sucesso");
+  }
+
+  componentDidMount() {
+    ApiService.ListAuthors()
+      .then(res => {
+        this.setState({authors : [...this.state.authors, ...res.data]})
+      });
   }
 
   render() {
