@@ -19,6 +19,7 @@ const ApiService = {
     return fetch(`http://localhost:8000/api/autor/livro/${id}`, {method: 'DELETE', headers: {'content-type': 'application/json'},})
       .then(res => res.json());
   }
+
 }
 
 export default ApiService;

@@ -5,8 +5,8 @@ import Header from './Header';
 import Table from './Table';
 import Form from './Form';
 import PopUp from './PopUp';
-
 import ApiService from './ApiService';
+
 
 class App extends Component {
   constructor(props) {
@@ -17,17 +17,19 @@ class App extends Component {
     };  
   }
 
-  removeAuthor = (index) => {
+  removeAuthor = id => {
+
     const { authors } = this.state;
 
     this.setState(
       {
-        authors: authors.filter((author, currentpos) => {                    
-          return currentpos !== index;
+        authors: authors.filter(author => {                    
+          return author.id !== id;
         }),   
       }
     );
-    PopUp.displayMessage('remove', 'Livro Removido com sucesso')
+    PopUp.displayMessage('remove', 'Livro Removido com sucesso');
+    ApiService.RemoveAuthor(id);
   }
 
   submitListener = author => {
@@ -41,6 +43,7 @@ class App extends Component {
         this.setState({authors : [...this.state.authors, ...res.data]})
       });
   }
+
 
   render() {
     return (

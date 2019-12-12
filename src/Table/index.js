@@ -16,13 +16,13 @@ const TableHead = () => {
 }
 
 const TableBody = props => {
-  const lines = props.authors.map((line, index)=>{
+  const lines = props.authors.map((line) => {
     return( 
-      <tr className="t-row" key={index}>        
+      <tr className="t-row" key={line.id}>        
         <td>{line.book}</td>
         <td>{line.name}</td>
         <td>{line.price}</td>
-        <td><button className="btn btn-outline-danger" onClick={ () => props.removeAuthor(index)} >Remover</button></td>
+        <td><button className="btn btn-outline-danger" onClick={ () => props.removeAuthor(line.id)} >Remover</button></td>
       </tr>
     );
  });
