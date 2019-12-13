@@ -12,11 +12,11 @@ const ApiService = {
       .then(res => res.json());
   }, 
   ListBooks: () => {
-    return fetch('http://localhost:8000/api/author/book')
+    return fetch('http://localhost:8000/api/author/')
       .then(res => res.json());
   }, 
   RemoveAuthor: id  => {
-    return fetch(`http://localhost:8000/api/author/book/${id}`, {method: 'DELETE', headers: {'content-type': 'application/json'},})
+    return fetch(`http://localhost:8000/api/author/${id}`, {method: 'DELETE', headers: {'content-type': 'application/json'},})
       .then(res => res.json());
   }
 

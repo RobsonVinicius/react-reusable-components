@@ -23,7 +23,7 @@ class App extends Component {
 
     this.setState(
       {
-        authors: authors.filter(author => {                    
+        authors : authors.filter(author => {                    
           return author.id !== id;
         }),   
       }
@@ -33,8 +33,12 @@ class App extends Component {
   }
 
   submitListener = author => {
-    this.setState({ authors: [...this.state.authors, author] });
-    PopUp.displayMessage("success", "Livro Adicionado com sucesso");
+    ApiService.CreateAuthor(JSON.stringify(author))
+      .then(res => res.data)
+      .then(author => {
+        this.setState({ authors: [...this.state.authors, author] });
+        PopUp.displayMessage("success", "Livro Adicionado com sucesso");
+      });    
   }
 
   componentDidMount() {
