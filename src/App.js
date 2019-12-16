@@ -21,31 +21,41 @@ class App extends Component {
 
     const { authors } = this.state;
 
-    this.setState(
-      {
-        authors : authors.filter(author => {                    
-          return author.id !== id;
-        }),   
-      }
-    );
-    PopUp.displayMessage('remove', 'Livro Removido com sucesso');
-    ApiService.RemoveAuthor(id);
+    const updatedAuthors = authors.filter(author => {
+      return author.id !== id;
+    });
+    ApiService.RemoveAuthor(id)
+      .then(res => ApiService.ErrorHandler(res))
+      .then (res => {
+        if(res.message === 'deleted') {
+          this.setState({authors : [...updatedAuthors]})
+          PopUp.displayMessage('remove', 'Livro Removido com sucesso');
+        }
+      })
+      .catch(err => PopUp.displayMessage('remove', 'Erro na comunicação com o servidor ao tentar remover o livro'));
   }
 
   submitListener = author => {
     ApiService.CreateAuthor(JSON.stringify(author))
-      .then(res => res.data)
-      .then(author => {
-        this.setState({ authors: [...this.state.authors, author] });
-        PopUp.displayMessage("success", "Livro Adicionado com sucesso");
-      });    
+      .then(res => ApiService.ErrorHandler(res))
+      .then(res => {
+        if(res.message === 'success') {
+          this.setState({ authors: [...this.state.authors, res.data] });
+          PopUp.displayMessage("success", "Livro Adicionado com sucesso");
+        }        
+      })
+      .catch(err => PopUp.displayMessage('remove', 'Erro na comunicação com o servidor ao tentar adicionar o livro'));
   }
 
   componentDidMount() {
     ApiService.ListAuthors()
+      .then(res => ApiService.ErrorHandler(res))
       .then(res => {
-        this.setState({authors : [...this.state.authors, ...res.data]})
-      });
+        if(res.message === 'success') {
+          this.setState({authors : [...this.state.authors, ...res.data]})
+        }
+      })
+      .catch(err => PopUp.displayMessage('remove', 'Erro na comunicação com o servidor ao tentar listar os livros'));
   }
 
 
