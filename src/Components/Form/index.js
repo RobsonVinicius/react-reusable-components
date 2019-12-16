@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import "./styles.css";
 
-import FormValidator from '../FormValidator'; 
-import PopUp from '../PopUp';
+import FormValidator from '../../utils/FormValidator'; 
+import PopUp from '../../utils/PopUp';
 
 class Form extends Component {
 

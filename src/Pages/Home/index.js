@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Header from './Header';
-import Table from './Table';
-import Form from './Form';
-import PopUp from './PopUp';
-import ApiService from './ApiService';
+import Header from '../../Components/Header';
+import Table from '../../Components/Table';
+import Form from '../../Components/Form';
+import PopUp from '../../utils/PopUp';
+import ApiService from '../../utils/ApiService';
 
 
 class App extends Component {
@@ -24,8 +24,7 @@ class App extends Component {
     const updatedAuthors = authors.filter(author => {
       return author.id !== id;
     });
-    ApiService.RemoveAuthor(id)
-      .then(res => ApiService.ErrorHandler(res))
+    ApiService.RemoveAuthor(id)      
       .then (res => {
         if(res.message === 'deleted') {
           this.setState({authors : [...updatedAuthors]})
@@ -36,8 +35,7 @@ class App extends Component {
   }
 
   submitListener = author => {
-    ApiService.CreateAuthor(JSON.stringify(author))
-      .then(res => ApiService.ErrorHandler(res))
+    ApiService.CreateAuthor(JSON.stringify(author))      
       .then(res => {
         if(res.message === 'success') {
           this.setState({ authors: [...this.state.authors, res.data] });
@@ -48,8 +46,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    ApiService.ListAuthors()
-      .then(res => ApiService.ErrorHandler(res))
+    ApiService.ListAuthors()      
       .then(res => {
         if(res.message === 'success') {
           this.setState({authors : [...this.state.authors, ...res.data]})

@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 const LinkWrapper = props => {
   return (
-    <NavLink activeStyle={{color: "#ffd833"}} {...props} />
+    <NavLink activeStyle={{color: "#ffd833", fontWeight: "bold"}} {...props} />
   );
 }
 
